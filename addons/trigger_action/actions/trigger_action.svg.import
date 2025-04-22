@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2h5q7dossfhb"
-path="res://.godot/imported/collision_trigger.png-4740a0b970e511eb1e60c36d56026535.ctex"
+uid="uid://djbi0t2bdf3f6"
+path="res://.godot/imported/trigger_action.svg-fe73152c791cc16e8d2812bf54373254.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/trigger/collision_trigger.png"
-dest_files=["res://.godot/imported/collision_trigger.png-4740a0b970e511eb1e60c36d56026535.ctex"]
+source_file="res://addons/trigger_action/actions/trigger_action.svg"
+dest_files=["res://.godot/imported/trigger_action.svg-fe73152c791cc16e8d2812bf54373254.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

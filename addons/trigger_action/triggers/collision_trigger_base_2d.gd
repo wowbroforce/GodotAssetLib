@@ -2,11 +2,11 @@
 # This script provides a base for the Trigger system.
 # This script provides all the action nodes that are children of this trigger node.
 
-#@icon("res://scripts/level/triggers/collision_trigger.png")
+@icon("res://addons/trigger_action/triggers/collision_trigger.png")
 
 extends Area2D
 
-class_name CollisionTriggerBase
+class_name CollisionTriggerBase2D
 
 # - Public Properties
 
