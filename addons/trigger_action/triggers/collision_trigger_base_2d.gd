@@ -2,25 +2,24 @@
 # This script provides a base for the Trigger system.
 # This script provides all the action nodes that are children of this trigger node.
 
-@icon("res://addons/trigger_action/triggers/collision_trigger.png")
-
-extends Area2D
-
 class_name CollisionTriggerBase2D
+
+extends TriggerBase
 
 # - Public Properties
 
-# Returns the Array of TriggerAction nodes
-var children_actions: Array: # Array[TriggerAction]:
-	get:
-		return _get_trigger_actions()
+@export var area_2d: Area2D
 
 var _overlapping_areas: Array[Area2D]
 
 # - Private Functions
 
+func _ready() -> void:
+	if area_2d: return
+	push_error("%s: 'area_2d' must be set." % get_script().resource_path)
+
 func _physics_process(_delta: float) -> void:
-	var areas = get_overlapping_areas()
+	var areas = area_2d.get_overlapping_areas()
 	var new_nodes = _subtract(_overlapping_areas, areas)
 	for node in new_nodes:
 		_invoke_actions(node)
@@ -28,16 +27,6 @@ func _physics_process(_delta: float) -> void:
 
 func _area_to_node(area: Area2D) -> Node2D:
 	return area as Node2D
-
-func _trigger_action_filter(node: Node) -> bool:
-	return is_instance_of(node, TriggerAction)
-	#return node is TriggerAction
-
-func _map_node_to_trigger_action(node: Node) -> TriggerAction:
-	return node as TriggerAction
-
-func _get_trigger_actions() -> Array: # Array[TriggerAction]:
-	return get_children().filter(_trigger_action_filter).map(_map_node_to_trigger_action)
 
 # Signals Handlers
 
@@ -55,7 +44,3 @@ func _subtract(array: Array, from: Array) -> Array:
 	for item in array:
 		result.erase(item)
 	return result
-
-func _invoke_actions(node: Node2D) -> void:
-	for action in _get_trigger_actions():
-		action.invoke_action(node)
