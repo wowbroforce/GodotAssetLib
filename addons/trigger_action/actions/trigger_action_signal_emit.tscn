@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0yyn0hva6iu2"]
+
+[ext_resource type="Script" uid="uid://b3ogvgw5b3sp1" path="res://addons/trigger_action/actions/trigger_action_signal_emit.gd" id="1_nsryb"]
+
+[node name="SignalEmit" type="Node"]
+script = ExtResource("1_nsryb")

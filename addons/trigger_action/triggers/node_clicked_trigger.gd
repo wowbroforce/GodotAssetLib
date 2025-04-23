@@ -18,7 +18,7 @@ func _on_collision_object_input_event(camera: Node, event: InputEvent, event_pos
 	if event.button_index != MOUSE_BUTTON_LEFT: return
 	if !event.is_pressed(): return
 	
-	children_actions
+	invoke_actions(self)
 
 func _get_collision_object() -> CollisionObject3D:
 	var parent := get_parent()
