@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccy47tfsdfus1"]
+
+[ext_resource type="Script" uid="uid://cw6layxvf7qmo" path="res://addons/trigger_action/actions/trigger_action_debug.gd" id="1_t3m8m"]
+
+[node name="TriggerActionDebug" type="Node"]
+script = ExtResource("1_t3m8m")

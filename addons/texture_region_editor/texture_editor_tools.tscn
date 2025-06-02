@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy10hldrxrlbu"]
+
+[ext_resource type="Script" uid="uid://67eyu21icbww" path="res://addons/texture_region_editor/texture_editor_tools.gd" id="1_i04u1"]
+[ext_resource type="PackedScene" uid="uid://c3kahjdxe5os5" path="res://addons/texture_region_editor/texture_region_editor_control.tscn" id="2_kilx7"]
+
+[node name="TextureEditorTools" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i04u1")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+text = "Tools"
+
+[node name="ShowWindowButton" type="Button" parent="."]
+layout_mode = 2
+text = "Edit Texture Region..."
+
+[node name="Window" type="Window" parent="."]
+title = "Region Editor"
+initial_position = 2
+visible = false
+
+[node name="TextureRegionEditorControl" parent="Window" instance=ExtResource("2_kilx7")]
+
+[connection signal="pressed" from="ShowWindowButton" to="." method="_on_show_window_button_pressed"]
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
