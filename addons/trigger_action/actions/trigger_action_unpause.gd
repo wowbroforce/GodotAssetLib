@@ -1,4 +1,4 @@
 extends TriggerAction
 
-func invoke_action(node: Node) -> void:
+func invoke_action(metadata: Dictionary) -> void:
 	get_tree().paused = true

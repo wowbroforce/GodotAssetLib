@@ -11,7 +11,7 @@ extends Node
 		_isDisabledChanged()
 
 # All subclasses should override this function
-func invoke_action(_node: Node) -> void:
+func invoke_action(metadata: Dictionary) -> void:
 	pass
 
 func _ready() -> void:

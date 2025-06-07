@@ -12,9 +12,9 @@ var children_actions: Array: # Array[TriggerAction]:
 
 # - Public Functions
 
-func invoke_actions(node: Node) -> void:
+func invoke_actions(metadata: Dictionary) -> void:
 	for action in _get_trigger_actions():
-		action.invoke_action(node)
+		action.invoke_action(metadata)
 
 # - Private Functions
 
