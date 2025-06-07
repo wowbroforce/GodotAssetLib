@@ -14,6 +14,16 @@ var region := Rect2i(0, 0, 0, 0)
 var dragging := false
 var drag_start := Vector2i()
 
+func snap_to_grid(pos: Vector2) -> Vector2i:
+	return Vector2i(
+	floor(pos.x / grid_size.x) * grid_size.x,
+		floor(pos.y / grid_size.y) * grid_size.y
+	)
+
+func set_region(new_region: Rect2i) -> void: 
+	region = new_region
+	queue_redraw()
+
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index != MOUSE_BUTTON_LEFT: return
@@ -32,15 +42,6 @@ func _input(event):
 		region.size = (drag_end - drag_start).abs() + grid_size
 		region.position = drag_start.min(drag_end)
 		queue_redraw()
-
-func snap_to_grid(pos: Vector2) -> Vector2i:
-	return Vector2i(
-	floor(pos.x / grid_size.x) * grid_size.x,
-		floor(pos.y / grid_size.y) * grid_size.y
-	)
-
-func set_region(new_region: Rect2i) -> void: 
-	region = new_region
 
 func _draw():
 	if texture:

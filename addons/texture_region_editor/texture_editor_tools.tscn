@@ -12,7 +12,6 @@ grow_vertical = 2
 script = ExtResource("1_i04u1")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 2
 text = "Tools"
 

@@ -36,6 +36,9 @@ var texture: Texture2D:
 
 #var region: Rect2i
 
+func set_region(new_region: Rect2i):
+	region_overlay.set_region(new_region)
+
 func _ready():
 	texture_rect.texture = texture
 	_update_spin_boxes()

@@ -6,7 +6,6 @@ extends EditorInspectorPlugin
 #var editor_interface: EditorInterface
 var fileDialog: FileDialog = FileDialog.new()
 var tools: TextureEditorTools
-const region_metadata_key: String = "EditorInspectorPlugin.Region"
 
 func _can_handle(object):
 	return object is BaseMaterial3D  # Works with all 3D materials
@@ -33,12 +32,9 @@ func _parse_property(object, type, name, hint_type, hint_string, usage_flags, wi
 		tools = preload("res://addons/texture_region_editor/texture_editor_tools.tscn").instantiate() as TextureEditorTools
 		tools.texture = texture
 		tools.material_to_update = material
+		tools.object_to_update = EditorInterface.get_selection()
 		add_property_editor(name, tools)
 	return false
 
-func _save_region(region: Rect2i):
-	set_meta(region_metadata_key, region)
-
-func _load_region() -> Rect2i:
-	if !has_meta(region_metadata_key): return null
-	return get_meta(region_metadata_key)
+func _on_texture_removed(from_object: Node) -> void:
+	EditorInterface.get_selection()
